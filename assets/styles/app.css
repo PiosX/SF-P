@@ -1,8 +1,14 @@
-body {
-    background-color: lightgray;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-h1{
-    color: yellow;
+body {
+    background-color: #fafafa;
+}
+
+.main{
     background-color: teal;
+    width: 100%;
 }

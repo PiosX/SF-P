@@ -2,7 +2,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap');
 
 body {
     background-color: #fafafa;
@@ -11,4 +14,28 @@ body {
 .main{
     background-color: teal;
     width: 100%;
+}
+
+footer{
+    text-decoration: none;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: #8E8E8E;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+footer .footer{
+    margin-bottom: 20px;
+}
+
+.footer-cpr{
+    margin-top: 10px;
 }

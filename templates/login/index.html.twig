@@ -1,0 +1,22 @@
+{% extends('base.html.twig') %}
+
+{% block body %}
+    <div class="login-container">
+        <img src="{{ asset('./images/login-img.jpg')}}"> 
+        <div class="form-container">
+            <div class="login border">
+                <img class="logo" src="{{ asset('./images/login-logo.jpg') }}">
+            </div>
+            <div class="register border">
+                <p>Don't have an account? <a href="">Sign Up</a></p>
+            </div>
+            <div class="download">
+                <p>Get the app.</p>
+                <div class="download-choose">
+                    <a href=""><img src="{{ asset('./images/appstore.png') }}"></a>
+                    <a href=""><img src="{{ asset('./images/googleplay.png') }}"></a>
+                </div>
+            </div>
+        </div>
+    </div>  
+{% endblock %}

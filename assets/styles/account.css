@@ -21,6 +21,7 @@ img{
     margin: auto;
     margin-top: 14%;
     margin-right: 20px;
+    padding-bottom: 30px;
 }
 
 .border{
@@ -68,7 +69,7 @@ img{
 
 .download-choose img{
     width: 136px;
-    height: 40px;
+    height: 70px;
     position: relative;
     margin-right: 10px;
     margin-top: 0;
@@ -82,4 +83,90 @@ img{
     left: 50%;
     transform: translate(-50%);
     margin-top: 15px;
+}
+
+.form-control{
+    border: 1px solid lightgray;
+    padding: 10px 5px 10px 5px;
+    border-radius: 4px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 5px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.form-control[type=email] {
+    width: 260px;
+}
+
+ .form-control[type=password] {
+    width: 260px;
+}
+
+.btn-lg{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 110px 5px 110px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #0095f6;
+    font-weight: bold;
+}
+
+.select-lg{
+    flex-direction: row;
+    margin: 10px 40px 18px;
+    position: relative;
+    left: 10%;
+    transform: translate(-10%);
+}
+
+.f-ln{
+    height: 1px;
+    width: 100px;
+    background-color: lightgray;
+    float: left;
+    margin-top: 7px;
+}
+
+.or-ln{
+    font-size: 12px;
+    font-weight: bold;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #8E8E8E;
+}
+
+.s-ln{
+    height: 1px;
+    width: 100px;
+    background-color: lightgray;
+    float: left;
+    margin-top: 7px;
+}
+
+.fb-btn{
+    padding: 5px 60px 5px 60px;
+    margin-top: 20px;
+    color: #385185;
+    background: none;
+}
+
+.fg-btn{
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    margin: auto;
+    position: relative;
+    left: 38%;
+    transform: translate(-38%);
+    color: #00376B;
 }

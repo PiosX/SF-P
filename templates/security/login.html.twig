@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Instagram{% endblock %}
 
 {% block body %}
     <div class="login-container">
@@ -19,10 +19,8 @@
                         </div>
                     {% endif %}
 
-                    <label for="inputEmail">Email</label>
-                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                    <label for="inputPassword">Password</label>
-                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="Email" placeholder="email" required autofocus><br />
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Password" required><br />
 
                     <input type="hidden" name="_csrf_token"
                         value="{{ csrf_token('authenticate') }}"
@@ -40,9 +38,18 @@
                     #}
 
                     <button class="btn btn-lg btn-primary" type="submit">
-                        Sign in
+                        Log in
                     </button>
                 </form>
+                <div class="select-lg">
+                    <div class="f-ln"></div>
+                    <div class="or-ln">OR</div>
+                    <div class="s-ln"></div>
+                </div>
+                <button class="btn-lg fb-btn">
+                    Log in with Facebook
+                </button><br />
+                <a class="fg-btn" href="">Forgot password?</a>
             </div>
             <div class="register border">
                 <p>Don't have an account? <a href="">Sign Up</a></p>

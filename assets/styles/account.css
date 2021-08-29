@@ -3,7 +3,8 @@ body {
 }
 
 .login-container{
-    width: 40%;
+    width: 100%;
+    max-width: 935px;
     margin: auto;
 }
 
@@ -12,15 +13,16 @@ body {
     float: left;
     width: 350px;
     position: relative;
-    margin-top: 19%;
+    margin-top: 14%;
     margin-left: -5px;
 }
 
-img{
+.phone-img{
     float: left;
     margin: auto;
-    margin-top: 14%;
+    margin-top: 10%;
     margin-right: 20px;
+    margin-left: 20px;
     padding-bottom: 30px;
 }
 
@@ -69,7 +71,7 @@ img{
 
 .download-choose img{
     width: 136px;
-    height: 70px;
+    height: 40px;
     position: relative;
     margin-right: 10px;
     margin-top: 0;
@@ -169,4 +171,69 @@ img{
     left: 38%;
     transform: translate(-38%);
     color: #00376B;
+}
+
+.login-container span{
+    display: none;
+}
+
+@media screen and (max-width: 350px){
+    .login-container span{
+        display: block;
+    }
+
+    .download-choose img{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        margin-top: -5px;
+    }
+
+    .download p{
+        margin-top: -10px;
+    }
+
+    .footer{
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .border{
+        border: none;
+    }
+
+    .login{
+        border: none;
+        background-color: #fafafa;
+    }
+
+    .register{
+        border: none;
+        background-color: #fafafa;
+        margin-top: -30px;
+    }
+
+    .form-container{
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .phone-img{
+        display: none;
+    }
+
+    .form-container{
+        position: relative;
+        padding-top: 70px;
+        float: none;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 850px){
+    .login-container{
+        margin: auto;
+    }
 }

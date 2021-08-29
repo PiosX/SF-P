@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="login-container">
-        <img src="{{ asset('./images/login-img.jpg')}}"> 
+        <img class="phone-img" src="{{ asset('./images/login-img.jpg')}}"> 
         <div class="form-container">
             <div class="login border">
                 <img class="logo" src="{{ asset('./images/login-logo.jpg') }}">
@@ -58,7 +58,8 @@
                 <p>Get the app.</p>
                 <div class="download-choose">
                     <a href=""><img src="{{ asset('./images/appstore.png') }}"></a>
-                    <a href=""><img src="{{ asset('./images/googleplay.png') }}"></a>
+                    <span><br /></span>
+                    <a href=""><img class="snd-ch" src="{{ asset('./images/googleplay.png') }}"></a>
                 </div>
             </div>
         </div>

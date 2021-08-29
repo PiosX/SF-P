@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Instagram{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
@@ -17,32 +18,30 @@
         <div class="main">
             {% block body %}{% endblock %}
         </div>
-        <footer>
-            <div class="footer">
-                <div class="footer-more">
-                    <a href="">About</a>
-                    <a href="">Blog</a>
-                    <a href="">Jobs</a>
-                    <a href="">Help</a>
-                    <a href="">API</a>
-                    <a href="">Privacy</a>
-                    <a href="">Terms</a>
-                    <a href="">Top Accounts</a>
-                    <a href="">Hashtags</a>
-                    <a href="">Locations</a><br />
-                    <a href="">Beauty</a>
-                    <a href="">Dance</a>
-                    <a href="">Fitness</a>
-                    <a href="">Food & Drink</a>
-                    <a href="">Home & Garden</a>
-                    <a href="">Music</a>
-                    <a href="">Visual Arts</a>
-                </div>
-                <div class="footer-cpr">
-                    <a href="">English</a>
-                    <a>2021 Instagram from Facebook<a>
-                </div>
+        <div class="footer">
+            <div class="footer-more">
+                <a href="">About</a>
+                <a href="">Blog</a>
+                <a href="">Jobs</a>
+                <a href="">Help</a>
+                <a href="">API</a>
+                <a href="">Privacy</a>
+                <a href="">Terms</a>
+                <a href="">Top Accounts</a>
+                <a href="">Hashtags</a>
+                <a href="">Locations</a><br />
+                <a href="">Beauty</a>
+                <a href="">Dance</a>
+                <a href="">Fitness</a>
+                <a href="">Food & Drink</a>
+                <a href="">Home & Garden</a>
+                <a href="">Music</a>
+                <a href="">Visual Arts</a>
             </div>
-        </footer>
+            <div class="footer-cpr">
+                <a href="">English</a>
+                <a>2021 Instagram from Facebook<a>
+            </div>
+        </div>
     </body>
 </html>

@@ -177,6 +177,12 @@ body {
     display: none;
 }
 
+.alert-danger{
+    color: red;
+    text-align: center;
+    font-size: 14px;
+}
+
 @media screen and (max-width: 350px){
     .login-container span{
         display: block;

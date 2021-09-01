@@ -5,20 +5,10 @@
 {% block body %}
     <div class="login-container">
         <img class="phone-img" src="{{ asset('./images/login-img.jpg')}}"> 
-        <div class="form-container">
+        <div class="form-container login-cont">
             <div class="login border">
                 <img class="logo" src="{{ asset('./images/login-logo.jpg') }}">
                 <form method="post">
-                    {% if error %}
-                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
-
-                    {% if app.user %}
-                        <div class="mb-3">
-                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                        </div>
-                    {% endif %}
-
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="Email" placeholder="email" required autofocus><br />
                     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Password" required><br />
 
@@ -41,6 +31,11 @@
                         Log in
                     </button>
                 </form>
+                <div>
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                </div>
                 <div class="select-lg">
                     <div class="f-ln"></div>
                     <div class="or-ln">OR</div>
@@ -64,5 +59,29 @@
             </div>
         </div>
     </div>
-
+    <div class="footer">
+        <div class="footer-more">
+            <a href="">About</a>
+            <a href="">Blog</a>
+            <a href="">Jobs</a>
+            <a href="">Help</a>
+            <a href="">API</a>
+            <a href="">Privacy</a>
+            <a href="">Terms</a>
+            <a href="">Top Accounts</a>
+            <a href="">Hashtags</a>
+            <a href="">Locations</a><br />
+            <a href="">Beauty</a>
+            <a href="">Dance</a>
+            <a href="">Fitness</a>
+            <a href="">Food & Drink</a>
+            <a href="">Home & Garden</a>
+            <a href="">Music</a>
+            <a href="">Visual Arts</a>
+        </div>
+        <div class="footer-cpr">
+            <a href="">English</a>
+            <a>2021 Instagram from Facebook<a>
+        </div>
+    </div>
 {% endblock %}

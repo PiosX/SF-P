@@ -1,0 +1,116 @@
+.register-cont{
+    max-width: 350px;
+    margin: auto;
+    float: none;
+    margin-top: 40px;
+}
+
+.rg-text{
+    font-size: 17px;
+    color: #8e8e8e;
+    text-align: center;
+    margin: -10px 40px 10px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.logo-r{
+    margin-top: 30px;
+}
+
+.fb-rg{
+    background-color: #0095f6;
+    color: white;
+    padding: 5px 60px 5px 60px;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.or-rg{
+    margin-top: -20px;
+}
+
+.reg{
+    margin: 0 0 10px;
+    height: 600px;
+    background-color: #fff;
+    margin: auto;
+    font-size: 14px;
+    text-align: center;
+    line-height: 55px;
+}
+
+.rg-lg-cnt{
+    max-width: 350px;
+    width: 350px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.rg-lg-cnt a{
+    font-weight: normal;
+}
+
+.register-form{
+    padding-top: -30px;
+}
+
+.register-form input{
+    width: 250px;
+    padding: 10px 0 10px 7px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    background-color: #FAFAFA;
+    font-size: 12px;
+}
+
+#form div{
+    margin-top: -10px;
+}
+
+.btn-rg{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 7px 100px 7px 100px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #0095f6;
+    font-weight: bold;
+}
+
+.agree-terms{
+    line-height: 16px;
+    margin: 10px 40px;
+    font-size: 11px;
+    color: #8e8e8e;
+}
+
+.rg-download{
+    height: 40px;
+    margin-top: 10px;
+    width: 350px;
+    margin: auto;
+}
+
+.rg-download img{
+    width: 135px;
+    height: 40px;
+    position: relative;
+    left: 18%;
+    transform: translate(-18%);
+}
+
+.download{
+    width: 350px;
+    margin: auto;
+}
+
+@media screen and (max-width: 850px){
+    .register-cont{
+        padding-top: 40px;
+    }
+}

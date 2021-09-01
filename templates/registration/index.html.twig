@@ -1,20 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RegistrationController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/Symfony_Project/src/Controller/RegistrationController.php'|file_link(0) }}">src/Controller/RegistrationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/Symfony_Project/templates/registration/index.html.twig'|file_link(0) }}">templates/registration/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="form-container register-cont">
+        <div class="reg border">
+            <img class="logo-r" src="{{ asset('./images/login-logo.jpg') }}">
+            <h2 class="rg-text">Sign up to see photos and videos from your friends.</h2>
+            <button class="btn fb-rg">Log in with Facebook</button>
+            <div class="select-lg">
+                <div class="f-ln"></div>
+                <div class="or-ln or-rg">OR</div>
+                <div class="s-ln"></div>
+            </div>
+            <div class="register-form">
+                {{ form(form) }}
+            </div>
+            <p class="agree-terms">
+                By singing up, you agree to our <strong>Terms</strong>. Learn how we collect, use and share your data in our <strong>Data Policy</strong> and how we use cookies and similar technology in our <strong>Cookies Policy</strong>.
+            </p>
+        </div>
+    </div>
+    <div class="register rg-lg-cnt border">
+        <p>Have an account? <a href="">Log in</a></p>
+    </div>
+    <div class="download">
+        <p>Get the app.</p>
+        <div class="rg-download">
+            <a href=""><img src="{{ asset('./images/appstore.png') }}"></a>
+            <a href=""><img class="snd-ch" src="{{ asset('./images/googleplay.png') }}"></a>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-more">
+            <a href="">About</a>
+            <a href="">Blog</a>
+            <a href="">Jobs</a>
+            <a href="">Help</a>
+            <a href="">API</a>
+            <a href="">Privacy</a>
+            <a href="">Terms</a>
+            <a href="">Top Accounts</a>
+            <a href="">Hashtags</a>
+            <a href="">Locations</a>
+        </div>
+        <div class="footer-cpr">
+            <a href="">English</a>
+            <a>2021 Instagram from Facebook<a>
+        </div>
+    </div>
 {% endblock %}

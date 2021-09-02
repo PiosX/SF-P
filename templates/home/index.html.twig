@@ -1,5 +1,37 @@
 {% extends('base.html.twig') %}
 
 {% block body %}
-    
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-cont-home">
+                <a href="{{ path('home') }}">
+                    <div class="logo-home">
+                        <img src="{{ asset('./images/instagram.png') }}">
+                    </div>
+                </a>
+            </div>
+            <div class="search-user">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="pages-cont">
+                <div class="explore-pages">
+                    <div class="page">
+                        <a href="{{ path('home') }}"><img src="{{ asset('./images/home1.png') }}"></a>
+                    </div>
+                    <div class="page">
+                        <a href=""><img src="{{ asset('./images/send.png') }}"></a>
+                    </div>
+                    <div class="page">
+                        <a href=""><img src="{{ asset('./images/explore.png') }}"></a>
+                    </div>
+                    <div class="page">
+                        <a href=""><img src="{{ asset('./images/heart.png') }}"></a>
+                    </div>
+                    <div class="page">
+                        <a href=""><img src="{{ asset('./images/user.png') }}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

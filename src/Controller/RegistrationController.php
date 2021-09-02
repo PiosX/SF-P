@@ -66,6 +66,9 @@ class RegistrationController extends AbstractController
         if($form->isSubmitted())
         {
             $data = $form->getData();
+            
+            $date = new \DateTime();
+            $time = $date->format('Y-m-d H:i:s');
 
             $user =new User();
             $user->setEmail($data['email']);
@@ -74,11 +77,14 @@ class RegistrationController extends AbstractController
             $user->setPassword(
                 $userPasswordHasherInterface->hashPassword($user, $data['password'])
             );
+            $user->setRegisterDate($time);
             dump($user);
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($user);
             $em->flush();
+
+            return $this->redirect($this->generateUrl('app_login'));
         }
 
         return $this->render('registration/index.html.twig', [

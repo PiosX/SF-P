@@ -58,8 +58,73 @@
 }
 
 .explore-pages{
+    min-width: 230px;
     max-width: 230px;
     width: 100%;
     height: 22px;
     float: right;
+}
+
+.user-options{
+    width: 230px;
+    height: 194px;
+    background-color: #fff;
+    position: absolute;
+    top: 50px;
+    margin-left: -180px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    border-top: none;
+    z-index: 3;
+}
+
+.user-pointer{
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    transform: rotate(45deg);
+    position: absolute;
+    left: 184px;
+    top: -6px;
+    z-index: 0;
+}
+
+.u-opt{
+    text-decoration: none;
+    font-size: 14px;
+    color: #262626;
+    line-height: 37px;
+}
+
+.u-opt div{
+    width: 230px;
+    height: 37px;
+}
+
+.u-opt div:hover{
+    background-color: #fafafa;
+}
+
+.u-opt div span{
+    margin-left: 30px;
+}
+
+.user-hr{
+    background-color: #DBDBDB;
+    border: 0;
+    margin: 0;
+    height: 1px;
+}
+
+@media screen and (max-width: 300px){
+    .header-content{
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .search-user{
+        display: none;
+    }
 }

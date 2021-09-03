@@ -52,6 +52,10 @@
     padding-left: 24px;
 }
 
+.page a{
+    cursor: pointer;
+}
+
 .page img{
     width: 22px;
     height: 22px;
@@ -76,6 +80,10 @@
     box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
     border-top: none;
     z-index: 3;
+}
+
+#user-options{
+    display: none;
 }
 
 .user-pointer{

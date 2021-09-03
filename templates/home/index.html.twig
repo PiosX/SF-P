@@ -28,8 +28,8 @@
                         <a href=""><img src="{{ asset('./images/heart.png') }}"></a>
                     </div>
                     <div class="page">
-                        <a href=""><img src="{{ asset('./images/user.png') }}"></a>
-                        <div class="user-options">
+                        <a onclick="showUserOpt()"><img src="{{ asset('./images/user.png') }}"></a>
+                        <div class="user-options" id="user-options">
                             <div class="user-pointer"></div>
                             <div class="user-cont-opt">
                                 <a class="u-opt" href=""><div class="chs-profile"><span>Profile</span></div></a>
@@ -45,4 +45,18 @@
             </div>
         </div>
     </div>
+    <script>
+        function showUserOpt()
+        {
+            var div = document.getElementById("user-options");
+            if(!div.style.display || div.style.display == "none")
+            {
+                div.style.display = "block";
+            }
+            else
+            {
+                div.style.display = "none";
+            }
+        }
+    </script>
 {% endblock %}

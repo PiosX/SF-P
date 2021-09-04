@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="profile-container">
+        <div class="header-profile">
+            <div class="profile-pic-cont">
+                <div class="profile-pic">
+                    <button class="add-photo" title="Add a profile photo"><img alt="Add a profile photo" id="avatar" src="{{ asset('./images/user.png') }}">
+                </div>
+            </div>
+            <div class="profile-info">
+                <div class="profile-edit">
+                    <h2>username</h2>
+                    <div class="edit-prof-but">
+                        <a href="">Edit profile</a>
+                    </div>
+                    <div class="settings-but">
+                        <img src="{{ asset('./images/settings.png') }}">
+                    </div>
+                </div>
+                <ul class="profile-stats">
+                    <li><span>0</span> posts</li>
+                    <li><span>0</span> followers</li>
+                    <li><span>0</span> following</li>
+                </ul>
+                <div class="profile-name">
+                    <h1>Profile Name</h1>
+                </div>
+            </div>
+        </div>
+        <div class="prof-bookmarks">
+        </div>
+        <div class="prof-content">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-more">
+            <a href="">About</a>
+            <a href="">Blog</a>
+            <a href="">Jobs</a>
+            <a href="">Help</a>
+            <a href="">API</a>
+            <a href="">Privacy</a>
+            <a href="">Terms</a>
+            <a href="">Top Accounts</a>
+            <a href="">Hashtags</a>
+            <a href="">Locations</a>
+        </div>
+        <div class="footer-cpr">
+            <a href="">English</a>
+            <a>2021 Instagram from Facebook<a>
+        </div>
+    </div>
+{% endblock %}

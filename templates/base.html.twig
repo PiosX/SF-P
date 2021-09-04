@@ -14,8 +14,61 @@
             {{ encore_entry_script_tags('app') }}
             {{ encore_entry_script_tags('home') }}
         {% endblock %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div class="header">
+            <div class="header-content">
+                <div class="logo-cont-home">
+                    <a href="{{ path('home') }}">
+                        <div class="logo-home">
+                            <img src="{{ asset('./images/instagram.png') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="search-user">
+                    <input type="text" placeholder="Search">
+                    <div class="search-cont">
+                        <div class="search-pointer"></div>
+                        <div class="search-content">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="pages-cont">
+                    <div class="explore-pages">
+                        <div class="page">
+                            <a href="{{ path('home') }}"><img src="{{ asset('./images/home1.png') }}"></a>
+                        </div>
+                        <div class="page">
+                            <a href=""><img src="{{ asset('./images/send.png') }}"></a>
+                        </div>
+                        <div class="page">
+                            <a href=""><img src="{{ asset('./images/explore.png') }}"></a>
+                        </div>
+                        <div class="page">
+                            <a href=""><img src="{{ asset('./images/heart.png') }}"></a>
+                        </div>
+                        <div class="page">
+                            <a onclick="showUserOpt()"><img src="{{ asset('./images/user.png') }}"></a>
+                            <div class="user-options"  id="user-options">
+                                <div class="user-pointer"></div>
+                                <div class="user-cont-opt">
+                                    <a class="u-opt" href=""><div class="chs-profile"><span>Profile</span></div></a>
+                                    <a class="u-opt" href=""><div class="chs-saved"><span>Saved</span></div></a>
+                                    <a class="u-opt" href=""><div class="chs-settings"><span>Settings</span></div></a>
+                                    <a class="u-opt" href=""><div class="chs-switch"><span>Switch Accounts</span></div></a>
+                                    <hr class="user-hr" />
+                                    <a class="u-opt" href="{{ path('app_logout') }}"><div class="logout"><span>Log Out</span></div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
         <div class="main">
             {% block body %}{% endblock %}
         </div>

@@ -1,7 +1,5 @@
 const $ = require('jquery');
 
-$.fn.myfunction = function () {
-    console.log(this.length);
-};
-
-$('.foo').myfunction();
+$( "#user-options" ).click(function() {
+  alert( "Handler for .click() called." );
+});

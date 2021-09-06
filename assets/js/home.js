@@ -1,5 +1,7 @@
 const $ = require('jquery');
 
-$( "#user-options" ).click(function() {
-  alert( "Handler for .click() called." );
+$(document).ready(function(){
+  $("#user-opt-href").click(function() {
+    $("#user-options").toggle();
+  });
 });

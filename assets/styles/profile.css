@@ -8,16 +8,36 @@
 .header-profile{
     width: 100%;
     height: 150px;
+    margin-bottom: 44px;
 }
 
 .prof-bookmarks{
     width: 100%;
     height: 53px;
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 1px;
+}
+
+.prof-bookmarks a{
+    text-decoration: none;
+    color: #8e8e8e;
+    height: 53px;
+    margin-right: 60px;
+    font-size: 12px;
+    font-weight: 500;
+    align-items: center;
+    line-height: 53px;
+    border-top: 1px solid #262626;
 }
 
 .prof-content{
     width: 100%;
     height: 380px;
+    background-color: #fff;
 }
 
 .profile-pic-cont{

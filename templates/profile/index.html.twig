@@ -3,6 +3,7 @@
 {% block title %}{% endblock %}
 
 {% block body %}
+{% if user %}
     <div class="profile-container">
         <div class="header-profile">
             <div class="profile-pic-cont">
@@ -12,13 +13,15 @@
             </div>
             <div class="profile-info">
                 <div class="profile-edit">
-                    <h2>{{ app.user.login }}</h2>
-                    <div class="edit-prof-but">
-                        <a href="">Edit profile</a>
-                    </div>
-                    <div class="settings-but">
-                        <img src="{{ asset('./images/settings.png') }}">
-                    </div>
+                    <h2>{{ user.login }}</h2>
+                    {% if app.user.login == user.login %}
+                        <div class="edit-prof-but">
+                            <a href="">Edit profile</a>
+                        </div>
+                        <div class="settings-but">
+                            <img src="{{ asset('./images/settings.png') }}">
+                        </div>
+                    {% endif %}
                 </div>
                 <ul class="profile-stats">
                     <li><span>0</span> posts</li>
@@ -26,7 +29,7 @@
                     <li><span>0</span> following</li>
                 </ul>
                 <div class="profile-name">
-                    <h1>{{ app.user.fullname }}</h1>
+                    <h1>{{ user.fullname }}</h1>
                 </div>
             </div>
         </div>
@@ -45,6 +48,7 @@
             </a>
         </div>
         <div class="prof-content">
+        {{ form(form) }}
         </div>
     </div>
     <div class="footer">
@@ -65,4 +69,14 @@
             <a>2021 Instagram from Facebook<a>
         </div>
     </div>
+{% else %}
+    <div class="error-user">
+        <h2>Sorry, this page isn't available.</h2>
+        <div class="error-user-cont">
+            <div class="error-mess">
+                The link you followed may be broken, or the page may have been removed.<a href="{{ path('home') }}"> Go back to Instagram</a>
+            </div>
+        </div>
+    </div>  
+{% endif %}
 {% endblock %}

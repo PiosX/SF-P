@@ -46,6 +46,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $fullname;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $avatar;
+
+    /**
      * @ORM\Column(type="string", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $register_date;
@@ -178,6 +183,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRegisterDate(string $register_date): self
     {
         $this->register_date = $register_date;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

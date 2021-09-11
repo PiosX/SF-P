@@ -9,35 +9,45 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ProfileController extends AbstractController
 {
     #[Route('/profile/{login}', name: 'profile')]
-    public function index($login, UserRepository $userRepository): Response
+    public function index(User $user, Request $request, $login): Response
     {
-        $user = $userRepository->findOneBy(array('login' => $login));
+        $users = new User();
+        $users = $this->getDoctrine()->getManager()->getRepository(User::class)->findOneBy(['login' => $login]);
 
-        return $this->render('profile/index.html.twig', [
-            'user' => $user,
-        ]);
-    }
-
-    #[Route('/profile/{login}', name: 'form')]
-    public function addUserImage(Request $request)
-    {
-        $user = new User();
-
-        $form = $this->createForm(ProfileType::class, $user);
+        $form = $this->createForm(ProfileType::class, $users);
 
         $form->handleRequest($request);
 
-        $em = $this->getDoctrine()->getManager();
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $em = $this->getDoctrine()->getManager();
 
-        //$em->persist($user);
-        //$em->flush();
+            /** @var UploadedFile $file */
+            $file = $form->get('avatar')->getData();
+            if($file){
+                $filename = md5(uniqid()).'.'.$file->guessClientExtension();
+
+                $file->move(
+                    $this->getParameter('uploads_av'),
+                    $filename
+                );
+                
+                $users->setAvatar($filename);
+                $em->flush();
+            }
+            dump($users);
+            
+            
+        }
 
         return $this->render('profile/index.html.twig', [
-            'form' => $form->createView()
+            'user' => $user,
+            'form' => $form->createView(),
         ]);
     }
 }

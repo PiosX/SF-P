@@ -8,7 +8,12 @@
         <div class="header-profile">
             <div class="profile-pic-cont">
                 <div class="profile-pic">
-                    <button class="add-photo" title="Add a profile photo"><img alt="Add a profile photo" id="avatar" src="{{ asset('./images/user.png') }}">
+                    <button class="add-photo" title="Add a profile photo">
+                        {{ form_start(form, {'attr':{'class': 'avatar-form'}}) }}
+                            {{ form_row(form.avatar) }}
+                            <img alt="Add a profile photo" id="avatar" src="{{ '/uploads/' ~ user.avatar }}">
+                        {{ form_end(form) }}
+                    </button>
                 </div>
             </div>
             <div class="profile-info">
@@ -48,7 +53,6 @@
             </a>
         </div>
         <div class="prof-content">
-        {{ form(form) }}
         </div>
     </div>
     <div class="footer">

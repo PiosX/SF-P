@@ -51,6 +51,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $avatar;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="post")
+     */
+    private $category;
+
+    /**
      * @ORM\Column(type="string", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $register_date;
@@ -195,6 +200,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAvatar(string $avatar): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Post
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Post $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,35 +18,24 @@ class Post
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="category")
-     */
-    private $post;
-
-    /**
      * @ORM\Column(type="string", length=100)
      */
     private $image;
 
-    public function __construct()
-    {
-        $this->post = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
     }
 
     public function getImage(): ?string
@@ -63,32 +50,26 @@ class Post
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getPost(): Collection
+    public function getDescription(): ?string
     {
-        return $this->post;
+        return $this->description;
     }
 
-    public function addPost(User $post): self
+    public function setDescription(?string $description): self
     {
-        if (!$this->post->contains($post)) {
-            $this->post[] = $post;
-            $post->setCategory($this);
-        }
+        $this->description = $description;
 
         return $this;
     }
 
-    public function removePost(User $post): self
+    public function getCategory(): ?User
     {
-        if ($this->post->removeElement($post)) {
-            // set the owning side to null (unless already changed)
-            if ($post->getCategory() === $this) {
-                $post->setCategory(null);
-            }
-        }
+        return $this->category;
+    }
+
+    public function setCategory(?User $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

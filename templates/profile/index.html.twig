@@ -59,6 +59,14 @@
             <div class="cont-shw">
                 <div class="add-new-cont">
                     <h2>Add new photo or video!</h2>
+                    {{ form_start(post) }}  
+                        {{ form_row(post.image) }}
+                        {{ form_row(post.description) }}
+                        <div class="hidden">
+                            {{ form_row(post.category) }}
+                        </div>
+                        {{ form_row(post.submit) }}
+                    {{ form_end(post) }}
                 </div>
             </div>
             <div class="prof-cont-row">

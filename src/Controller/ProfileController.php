@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
 use App\Entity\User;
+use App\Form\PostType;
 use App\Form\ProfileType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,10 +19,14 @@ class ProfileController extends AbstractController
     public function index(User $user, Request $request, $login): Response
     {
         $users = new User();
+        $posts = new Post();
+
         $users = $this->getDoctrine()->getManager()->getRepository(User::class)->findOneBy(['login' => $login]);
 
         $form = $this->createForm(ProfileType::class, $users);
+        $postForm = $this->createForm(PostType::class, $posts);
 
+        $postForm->handleRequest($request);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,14 +46,22 @@ class ProfileController extends AbstractController
                 $users->setAvatar($filename);
                 $em->flush();
             }
-            dump($users);
-            
-            
+        }
+
+        if($postForm->isSubmitted() && $postForm->isValid())
+        {
+            $em2 = $this->getDoctrine()->getManager();
+
+            $posts->setCategory($user);
+
+            $em2->persist($posts);
+            $em2->flush();
         }
 
         return $this->render('profile/index.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+            'post' => $postForm->createView(),
         ]);
     }
 }

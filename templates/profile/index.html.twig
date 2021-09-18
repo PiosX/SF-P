@@ -53,13 +53,13 @@
             </a>
         </div>
         <div class="prof-content">
-            <button class="add-cont but" style="cursor:pointer;">
+            <button class="add-cont but" id="add-cont" style="cursor:pointer;">
                 Upload
             </button>
-            <div class="cont-shw">
+            <div class="cont-shw" id="cont-shw">
                 <div class="add-new-cont">
-                    <h2>Add new photo or video!</h2>
-                    {{ form_start(post) }}  
+                    <h2>Add new photo or video!</h2><span id="close-add">x</span>
+                    {{ form_start(post, {'attr':{'class': 'post-form'}}) }}  
                         {{ form_row(post.image) }}
                         {{ form_row(post.description) }}
                         <div class="hidden">
@@ -69,39 +69,19 @@
                     {{ form_end(post) }}
                 </div>
             </div>
-            <div class="prof-cont-row">
-                <div class="user-content cont-flex">
+            
+                <div class="prof-cont-row">
+                    <div class="user-content cont-flex">
+                        <img src="{{ '/images/' }}" class="img-post">
+                    </div>
+                    <div class="user-content cont-flex">
+                        {{ posts.category }}
+                    </div>
+                    <div class="user-content cont-flex">
 
+                    </div>
                 </div>
-                <div class="user-content cont-flex">
-
-                </div>
-                <div class="user-content cont-flex">
-
-                </div>
-            </div>
-            <div class="prof-cont-row">
-                <div class="user-content cont-flex">
-
-                </div>
-                <div class="user-content cont-flex">
-
-                </div>
-                <div class="user-content cont-flex">
-
-                </div>
-            </div>
-            <div class="prof-cont-row">
-                <div class="user-content cont-flex">
-
-                </div>
-                <div class="user-content cont-flex">
-
-                </div>
-                <div class="user-content cont-flex">
-
-                </div>
-            </div>
+            
         </div>
     </div>
     <div class="footer" style="display:none;">

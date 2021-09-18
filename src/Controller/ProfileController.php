@@ -52,16 +52,42 @@ class ProfileController extends AbstractController
         {
             $em2 = $this->getDoctrine()->getManager();
 
-            $posts->setCategory($user);
+            /** @var UploadedFile $file */
+            $postFile = $postForm->get('image')->getData();
+            if($postFile)
+            {
+                $postFileName = md5(uniqid()).'.'.$postFile->guessClientExtension();
 
-            $em2->persist($posts);
-            $em2->flush();
+                $postFile->move(
+                    $this->getParameter('uploads_posts'),
+                    $postFileName
+                );
+
+                $posts->setImage($postFileName);
+                $posts->setCategory($user);
+
+                $em2->persist($posts);
+                $em2->flush();
+            }   
         }
 
         return $this->render('profile/index.html.twig', [
             'user' => $user,
+            'posts' => $posts,
             'form' => $form->createView(),
             'post' => $postForm->createView(),
+        ]);
+    }
+
+    #[Route('/show/{category}/{login}', name: 'show')]
+    public function show(User $user, Post $post, $category, $login): Response
+    {
+        $post = $this->getDoctrine()->getRepository(Post::class)->findBy(['category' => $category]);
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['login' => $login]);
+
+        return $this->render('profile/show.html.twig', [
+            'posting' => $post,
+            'user' => $user,
         ]);
     }
 }

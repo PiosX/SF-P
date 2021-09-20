@@ -10,8 +10,12 @@
                 <div class="profile-pic">
                     <button class="add-photo" title="Add a profile photo">
                         {{ form_start(form, {'attr':{'class': 'avatar-form'}}) }}
-                            {{ form_row(form.avatar) }}
-                            <img alt="Add a profile photo" id="avatar" src="{{ '/uploads/' ~ user.avatar }}">
+                            {{ form_row(form.avatar) }}        
+                            {% if user.avatar == null %}
+                                <img alt="Add a profile photo" id="avatar" src="{{ asset('/images/user.png') }}">
+                            {% else %}
+                                <img alt="Add a profile photo" id="avatar" src="{{ '/uploads/' ~ user.avatar }}">
+                            {% endif %}
                         {{ form_end(form) }}
                     </button>
                 </div>

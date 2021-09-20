@@ -1,10 +1,6 @@
 {% extends('base.html.twig') %}
 
 {% block body %}
-{% for post in posting %}
-    <img src="{{ '/posts/' ~ post.image }}" width="200px" height="200px">
-    <h1>{{ post.category.email }}</h1>
-{% endfor %}
 
-    {{ user.description }}
+{{ user.login }}
 {% endblock %}

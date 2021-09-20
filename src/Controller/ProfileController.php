@@ -6,6 +6,7 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Form\PostType;
 use App\Form\ProfileType;
+use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,10 +17,14 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class ProfileController extends AbstractController
 {
     #[Route('/profile/{login}', name: 'profile')]
-    public function index(User $user, Request $request, $login): Response
+    public function index(User $user, Request $request, $login, UserRepository $userRepository): Response
     {
         $users = new User();
         $posts = new Post();
+
+        $userId = $user->getId();
+
+        $userPosts = $userRepository->findUserWithPost($userId);
 
         $users = $this->getDoctrine()->getManager()->getRepository(User::class)->findOneBy(['login' => $login]);
 
@@ -74,20 +79,22 @@ class ProfileController extends AbstractController
         return $this->render('profile/index.html.twig', [
             'user' => $user,
             'posts' => $posts,
+            'userPosts' => $userPosts,
             'form' => $form->createView(),
             'post' => $postForm->createView(),
         ]);
     }
 
-    #[Route('/show/{category}/{login}', name: 'show')]
-    public function show(User $user, Post $post, $category, $login): Response
+    #[Route('/show/{login}', name: 'show')]
+    public function show(User $user, UserRepository $userRepository): Response
     {
-        $post = $this->getDoctrine()->getRepository(Post::class)->findBy(['category' => $category]);
-        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['login' => $login]);
+        $userId = $user->getId();
+
+        $users = $userRepository->findUserWithPost($userId);
 
         return $this->render('profile/show.html.twig', [
-            'posting' => $post,
             'user' => $user,
+            'users' => $users
         ]);
     }
 }

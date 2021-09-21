@@ -8,6 +8,7 @@ use App\Form\PostType;
 use App\Form\ProfileType;
 use App\Repository\PostRepository;
 use App\Repository\UserRepository;
+use App\Services\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class ProfileController extends AbstractController
 {
     #[Route('/profile/{login}', name: 'profile')]
-    public function index(User $user, Request $request, $login, UserRepository $userRepository): Response
+    public function index(User $user, Request $request, $login, UserRepository $userRepository, FileUploader $fileUploader): Response
     {
         $users = new User();
         $posts = new Post();
@@ -41,12 +42,7 @@ class ProfileController extends AbstractController
             /** @var UploadedFile $file */
             $file = $form->get('avatar')->getData();
             if($file){
-                $filename = md5(uniqid()).'.'.$file->guessClientExtension();
-
-                $file->move(
-                    $this->getParameter('uploads_av'),
-                    $filename
-                );
+                $filename = $fileUploader->uploadFile($file, 'uploads_av');
                 
                 $users->setAvatar($filename);
                 $em->flush();
@@ -61,12 +57,7 @@ class ProfileController extends AbstractController
             $postFile = $postForm->get('image')->getData();
             if($postFile)
             {
-                $postFileName = md5(uniqid()).'.'.$postFile->guessClientExtension();
-
-                $postFile->move(
-                    $this->getParameter('uploads_posts'),
-                    $postFileName
-                );
+                $postFileName = $fileUploader->uploadFile($postFile, 'uploads_posts');
 
                 $posts->setImage($postFileName);
                 $posts->setCategory($user);
